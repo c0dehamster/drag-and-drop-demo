@@ -1,9 +1,9 @@
 import { writable } from "svelte/store"
 
-let items = [
-	{ id: 1, title: "I" },
-	{ id: 2, title: "Am" },
-	{ id: 3, title: "Yoda" },
-]
-
-export const ListStore = writable(items)
+export const ListStore = writable([
+	{ id: 1, title: "Lorem" },
+	{ id: 2, title: "ipsum" },
+	{ id: 3, title: "dolor" },
+	{ id: 4, title: "sit" },
+	{ id: 5, title: "amet" },
+])
