@@ -4,25 +4,18 @@
 
 	import { ListStore } from "./ListStore"
 
-	let items = $ListStore
-
 	const flipDurationMs = 200
 
 	const handleSort = e => {
-		items = e.detail.items
-	}
-
-	const handleSortEnd = e => {
-		items = e.detail.items
-		ListStore.set(items)
+		$ListStore = e.detail.items
 	}
 </script>
 
 <section
-	use:dndzone={{ items }}
+	use:dndzone={{ items: $ListStore }}
 	on:consider={handleSort}
-	on:finalize={handleSortEnd}>
-	{#each items as item (item.id)}
+	on:finalize={handleSort}>
+	{#each $ListStore as item (item.id)}
 		<div animate:flip={{ duration: flipDurationMs }}>
 			{item.title}
 		</div>
